@@ -9,8 +9,9 @@ def connect():
 
 
 def create(user_id, mood):
-    collection = connect()
     time = datetime.datetime.utcnow().isoformat()
+
+    collection = connect()
     collection.insert_one({'user_id': ObjectId(user_id), 'mood': int(mood), 'time': str(time)})
 
 
