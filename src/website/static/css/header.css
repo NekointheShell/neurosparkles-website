@@ -1,0 +1,18 @@
+#header {
+    grid-area: header;
+    text-align: center;
+    font-weight: bold;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: 'leftbrain ascii rightbrain';
+
+    border-bottom: 2px solid black;
+}
+
+
+#header img {
+    height: 7em;
+    width: 7em;
+    margin: auto;
+}

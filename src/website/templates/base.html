@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel='stylesheet' href='/static/css/base.css'>
+
+        <meta property='og:title' content='NeuroSparkles'>
+        <meta property='og:type' content='website'>
+        <meta property='og:url' content='https://neurosparkles.com'>
+        <meta property='og:image' content='https://neurosparkles.com/static/images/brain.png'>
+    </head>
+
+
+    <body>
+        {% include 'header.html' %}
+        {% include 'menu.html' %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

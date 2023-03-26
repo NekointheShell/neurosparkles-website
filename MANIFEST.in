@@ -1,0 +1,2 @@
+graft src/neurosparkles/static
+graft src/neurosparkles/templates

@@ -1,0 +1,15 @@
+#content {
+    grid-area: content;
+}
+
+
+#content * {
+    margin: 1em;
+}
+
+
+#content hr {
+    border: 1px solid black;
+    width: 95%;
+    margin: auto;
+}
