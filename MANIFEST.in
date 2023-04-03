@@ -1,2 +1,2 @@
-graft src/neurosparkles/static
-graft src/neurosparkles/templates
+graft src/website/static
+graft src/website/templates
