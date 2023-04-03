@@ -10,4 +10,4 @@ ADD . /website
 RUN cd /website; pip install .
 
 
-CMD gunicorn website:app
+CMD gunicorn --bind 0.0.0.0:5000 website:app
