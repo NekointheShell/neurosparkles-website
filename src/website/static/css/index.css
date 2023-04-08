@@ -1,5 +1,6 @@
 #content {
     grid-area: content;
+    overflow: scroll;
 }
 
 
