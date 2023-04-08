@@ -13,7 +13,7 @@ def favicon():
 
 @app.route('/')
 def root():
-    return render_template('pages/story.html')
+    return render_template('pages/index.html')
 
 
 @app.route('/resources')
