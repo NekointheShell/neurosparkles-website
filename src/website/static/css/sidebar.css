@@ -1,0 +1,23 @@
+#logo {
+    grid-area: logo;
+    background-color: #2280e1;
+}
+
+
+#links {
+    grid-area: links;
+    background-color: #2280e1;
+}
+
+
+#links a {
+    color: white;
+    text-decoration: none;
+    margin: 1em;
+}
+
+
+#login {
+    grid-area: login;
+    background-color: #2280e1;
+}
