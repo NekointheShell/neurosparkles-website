@@ -5,6 +5,13 @@
 }
 
 
+#logo img {
+    height: 7em;
+    width: 7em;
+    margin: auto;
+}
+
+
 #links {
     grid-area: links;
     background-color: #2280e1;
