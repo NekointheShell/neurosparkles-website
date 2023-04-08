@@ -6,9 +6,10 @@
 
 
 #logo img {
+    display: block;
     height: 7em;
     width: 7em;
-    margin: auto;
+    margin: 1em auto;
 }
 
 
@@ -29,4 +30,5 @@
     display: block;
     color: white;
     text-decoration: none;
+    margin: 1em;
 }
