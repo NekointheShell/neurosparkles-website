@@ -28,7 +28,8 @@
 
 * a {
     display: block;
-    color: white;
     text-decoration: none;
+    text-align: center;
+    color: white;
     margin: 1em;
 }
