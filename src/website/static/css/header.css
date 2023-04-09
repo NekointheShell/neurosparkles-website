@@ -3,11 +3,9 @@
     text-align: center;
     font-weight: bold;
     border-bottom: 2px solid black;
-}
 
-
-#header img {
-    height: 7em;
-    width: 7em;
-    margin: auto;
+    # rainbow
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
 }
