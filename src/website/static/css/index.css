@@ -11,6 +11,10 @@
 
 #content hr {
     border: 1px solid black;
-    width: 95%;
     margin: auto;
+
+    height: 1px;
+    width: 95%;
+
+    color: gray;
 }

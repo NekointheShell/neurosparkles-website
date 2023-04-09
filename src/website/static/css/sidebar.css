@@ -1,28 +1,30 @@
 #logo {
     grid-area: logo;
-    background-color: #2280e1;
-    border-bottom: 2px dotted black;
+    background-color: black;
+    border-bottom: 2px dotted gray;
 }
 
 
 #logo img {
     display: block;
+    margin: 1em auto;
+
     height: 7em;
     width: 7em;
-    margin: 1em auto;
 }
 
 
 #links {
     grid-area: links;
-    background-color: #2280e1;
-    border-bottom: 2px dotted black;
+
+    background-color: black;
+    border-bottom: 2px dotted gray;
 }
 
 
 #login {
     grid-area: login;
-    background-color: #2280e1;
+    background-color: black;
 }
 
 

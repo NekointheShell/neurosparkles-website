@@ -1,9 +1,9 @@
 from flask import Flask, render_template
-import uuid
+import secrets
 
 
 app = Flask(__name__)
-app.secret_key = uuid.uuid4().hex
+app.secret_key = secrets.token_hex()
 
 
 @app.route('/favicon.ico')
@@ -19,3 +19,15 @@ def root():
 @app.route('/resources')
 def resources():
     return render_template('pages/resources.html')
+
+
+@app.route('/login', methods = ['GET', 'POST', 'DELETE'])
+def login():
+    if request.method == 'GET':
+        return render_template('pages/login.html')
+
+    elif request.method == 'POST':
+        return 'pass'
+
+    elif request.method == 'DELETE':
+        return 'pass'

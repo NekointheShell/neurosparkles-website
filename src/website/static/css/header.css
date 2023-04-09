@@ -1,8 +1,10 @@
 #header {
     grid-area: header;
+
     text-align: center;
     font-weight: bold;
-    border-bottom: 2px solid black;
+
+    border-bottom: 2px dotted gray;
 
     /* rainbow */
     background-image: linear-gradient(to right, red, orange, yellow, green, blue, purple);
