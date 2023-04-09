@@ -4,7 +4,7 @@
     font-weight: bold;
     border-bottom: 2px solid black;
 
-    # rainbow
+    /* rainbow */
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
     -webkit-background-clip: text;
     color: transparent;
