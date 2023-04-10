@@ -1,4 +1,6 @@
 import pymongo, os
+import string
+import validators
 
 
 def connect_db():
@@ -6,3 +8,12 @@ def connect_db():
     database = client.neurosparkles
 
     return client, database
+
+
+def validate_email(email):
+    try:
+        validators.email(email)
+        return True
+
+    except ValidationFailure:
+        raise Exception('Invalid email: {}'.format(email)
