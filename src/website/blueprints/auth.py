@@ -13,10 +13,10 @@ def login():
         return render_template('pages/login.html')
 
     elif request.method == 'POST':
-        attempted_user = users_model.read_one(request.forms['email'])
+        attempted_user = users_model.read_one(request.form['email'])
 
         hasher = argon2.PasswordHasher()
-        if hasher.verify(attempted_user['password'], request.forms['password']):
+        if hasher.verify(attempted_user['password'], request.form['password']):
             session['email'] = attempted_user['email']
 
         else: raise FailedLoginError(attempted_user)
