@@ -9,6 +9,8 @@ def connect():
 
 
 def create(email, password, display_name):
+    helpers.validate_email(email)
+
     hasher = argon2.PasswordHasher()
     hash = hasher.hash(password)
 
@@ -21,36 +23,33 @@ def create(email, password, display_name):
 
 
 def read():
-    collection = connect()
-    return collection.find()
+    return connect().find()
 
 
-def read_one(user_id):
-    collection = connect()
-    return collection.find_one({'_id': ObjectId(user_id)})
+def read_one(email):
+    helpers.validate_email(email)
+    return connect().find_one({'email': str(email)})
 
 
-def update_email(user_id, email):
-    collection = connect()
-    collection.update_one({'_id': ObjectId(user_id)}, {'$set': {'email': str(email)}})
+def update_email(old_email, new_email):
+    helpers.validate_email(old_email)
+    helpers.validate_email(new_email)
+    connect().update_one({'email': str(old_email)}, {'$set': {'email': str(new_email)}})
 
 
-def update_password(user_id, password):
+def update_password(email, password):
+    helpers.validate_email(email)
+
     hasher = argon2.PasswordHasher()
     hash = hasher.hash(password)
-
-    collection = connect()
-    collection.update_one({'_id': ObjectId(user_id)}, {'$set': {'password': str(hash)}})
+    connect().update_one({'email': str(email)}, {'$set': {'password': str(hash)}})
 
 
-def update_display_name(user_id, display_name):
-    collection = connect()
-    collection.update_one(
-        {'_id': ObjectId(user_id)},
-        {'$set': {'display_name': str(display_name)}}
-    )
+def update_display_name(email, display_name):
+    helpers.validate_email(email)
+    connect().update_one({'email': str(email)}, {'$set': {'display_name': str(display_name)}})
 
 
-def delete(user_id):
-    collection = connect()
-    collection.delete_one({'_id': ObjectId(user_id)})
+def delete(email):
+    helpers.validate_email(email)
+    connect().delete_one({'email': str(email)})
