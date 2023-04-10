@@ -20,7 +20,7 @@ def login():
             session['email'] = attempted_user['email']
             return redirect(url_for('root'))
 
-        else: raise FailedLoginError(attempted_user)
+        else: raise errors.FailedLoginError(attempted_user)
 
 
 @auth.route('/logout')

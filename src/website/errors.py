@@ -14,3 +14,8 @@ class FailedLoginError(Exception):
 class InvalidEmailError(Exception):
     def __init__(self, email):
         super().__init__('Invalid email {} by {}'.format(email, request.remote_addr))
+
+
+class RoleError(Exception):
+    def __init__(self, email, role):
+        super().__init__('Invalid role {} for {}'.format(role, email))
