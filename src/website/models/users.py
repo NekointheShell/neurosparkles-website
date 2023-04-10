@@ -1,5 +1,6 @@
 import pymongo, argon2
 import website.helpers as helpers
+import website.errors as errors
 
 
 def connect():
@@ -7,17 +8,18 @@ def connect():
     return database.users
 
 
-def create(email, password, display_name):
+def create(email, password, display_name, role):
     helpers.validate_email(email)
+    if role != 'doctor' and role != 'patient': raise errors.RoleError(email, role)
 
     hasher = argon2.PasswordHasher()
     hash = hasher.hash(password)
 
-    collection = connect()
-    collection.insert_one({
+    connect().insert_one({
         'email': str(email),
         'password': str(hash),
-        'display_name': str(display_name)
+        'display_name': str(display_name),
+        'role': str(role)
     })
 
 
@@ -47,6 +49,12 @@ def update_password(email, password):
 def update_display_name(email, display_name):
     helpers.validate_email(email)
     connect().update_one({'email': str(email)}, {'$set': {'display_name': str(display_name)}})
+
+
+def update_role(email, role):
+    helpers.validate_email(email)
+    if role != 'doctor' and role != 'patient': raise errors.RoleError(email, role)
+    connect().update_one({'email': str(email)}, {'$set': {'role': str(role)})
 
 
 def delete(email):
