@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for
-import website-neurosparkles.models.users as users_model
-import website-neurosparkles.errors as errors
+import website.models.users as users_model
+import website.errors as errors
 import argon2
 
 

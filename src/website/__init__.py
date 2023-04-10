@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 import secrets
-from website-neurosparkles.blueprints.auth import auth
+from website.blueprints.auth import auth
 
 
 app = Flask(__name__)
