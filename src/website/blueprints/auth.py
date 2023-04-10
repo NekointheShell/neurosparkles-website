@@ -19,7 +19,7 @@ def login():
         if hasher.verify(attempted_user['password'], request.forms['password']):
             session['email'] = attempted_user['email']
 
-        else: raise FailedLoginError(attempted_user, request.remote_addr)
+        else: raise FailedLoginError(attempted_user)
 
 
 @auth.route('/logout')

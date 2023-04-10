@@ -16,4 +16,4 @@ def validate_email(email):
         return True
 
     except ValidationFailure:
-        raise Exception('Invalid email: {}'.format(email)
+        raise InvalidEmailError(email)
