@@ -4,7 +4,7 @@ import website.errors as errors
 import argon2
 
 
-auth = Blueprint('login', __name__)
+auth = Blueprint('auth', __name__)
 
 
 @auth.route('/login', methods = ['GET', 'POST'])
@@ -18,6 +18,7 @@ def login():
         hasher = argon2.PasswordHasher()
         if hasher.verify(attempted_user['password'], request.form['password']):
             session['email'] = attempted_user['email']
+            return redirect(url_for('root'))
 
         else: raise FailedLoginError(attempted_user)
 
