@@ -14,13 +14,13 @@ def signup():
         return render_template('pages/users/signup.html')
 
     elif request.method == 'POST':
-        if not 'username' in request.forms: raise errors.FormNotValidError()
-        if not 'email' in request.forms: raise errors.FormNotValidError()
-        if not 'display_name' in request.forms: raise errors.FormNotValidError()
+        if not 'username' in request.form: raise errors.FormNotValidError()
+        if not 'email' in request.form: raise errors.FormNotValidError()
+        if not 'display_name' in request.form: raise errors.FormNotValidError()
 
-        username = request.forms['username']
-        email = request.forms['email']
-        display_name = request.forms['display_name']
+        username = request.form['username']
+        email = request.form['email']
+        display_name = request.form['display_name']
 
         if not username.isalnum(): raise errors.InvalidInputError()
         if not display_name.isalnum(): raise errors.InvalidInputError()
@@ -38,11 +38,11 @@ def login():
         return render_template('pages/users/login.html')
 
     elif request.method == 'POST':
-        if not 'username' in request.forms: raise errors.FormNotValidError()
-        if not 'password' in request.forms: raise errors.FormNotValidError()
+        if not 'username' in request.form: raise errors.FormNotValidError()
+        if not 'password' in request.form: raise errors.FormNotValidError()
 
-        username = request.forms['username']
-        password = request.forms['password']
+        username = request.form['username']
+        password = request.form['password']
 
         attempted_user = users_model.read_one(username)
 
@@ -62,13 +62,13 @@ def profile():
         return render_template('pages/users/profile.html', user = user)
 
     elif request.method == 'POST':
-        if not 'username' in request.forms: raise errors.FormNotValidError()
-        if not 'email' in request.forms: raise errors.FormNotValidError()
-        if not 'display_name' in request.forms: raise errors.FormNotValidError()
+        if not 'username' in request.form: raise errors.FormNotValidError()
+        if not 'email' in request.form: raise errors.FormNotValidError()
+        if not 'display_name' in request.form: raise errors.FormNotValidError()
 
-        username = request.forms['username']
-        email = request.forms['email']
-        display_name = request.forms['display_name']
+        username = request.form['username']
+        email = request.form['email']
+        display_name = request.form['display_name']
 
         if not username.isalnum(): raise errors.InvalidInputError()
         if not display_name.isalnum(): raise errors.InvalidInputError()
