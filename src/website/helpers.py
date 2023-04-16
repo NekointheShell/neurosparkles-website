@@ -30,7 +30,7 @@ def hash_password(password):
     return hash
 
 
-def verify_password(password, hash)
+def verify_password(password, hash):
     hasher = argon2.PasswordHasher()
     if hasher.verify(password, hash): return True
     else: return False
