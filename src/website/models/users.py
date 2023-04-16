@@ -1,4 +1,4 @@
-import pymongo, argon2
+import pymongo, argon2, secrets
 import website.helpers as helpers
 import website.errors as errors
 

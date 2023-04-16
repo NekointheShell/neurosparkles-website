@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, session, redirect, url_fo
 import website.helpers as helpers
 import website.errors as errors
 import website.models.users as users_model
-import argon2, secrets
+import argon2
 
 
 users = Blueprint('users', __name__)
