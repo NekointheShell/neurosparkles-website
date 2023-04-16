@@ -1,12 +1,12 @@
 from flask import Flask, render_template
 import secrets
-from website.blueprints.auth import auth
+from website.blueprints.users import users
 
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex()
 
-app.register_blueprint(auth)
+app.register_blueprint(users)
 
 
 @app.route('/favicon.ico')
