@@ -1,0 +1,16 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Provider<th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for provider in providers %}
+                <tr><td>{% provider %}</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

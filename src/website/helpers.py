@@ -1,6 +1,10 @@
-import pymongo, os
-import string
+from flask import session
+
+import pymongo, os, string
 import validators
+import argon2
+
+import website.models.users as users_model
 
 
 def connect_db():
@@ -17,3 +21,16 @@ def validate_email(email):
 
     except ValidationFailure:
         raise InvalidEmailError(email)
+
+
+def hash_password(password):
+    hasher = argon2.PasswordHasher()
+    hash = hasher.hash(password)
+
+    return hash
+
+
+def verify_password(password, hash)
+    hasher = argon2.PasswordHasher()
+    if hasher.verify(password, hash): return True
+    else: return False

@@ -8,18 +8,16 @@ def connect():
     return database.users
 
 
-def create(email, password, display_name, role):
-    helpers.validate_email(email)
-    if role != 'doctor' and role != 'patient': raise errors.RoleError(email, role)
-
-    hasher = argon2.PasswordHasher()
-    hash = hasher.hash(password)
-
+def create(username, email, display_name, role = 'user'):
+    random_password = secrets.token_hex()
     connect().insert_one({
+        'username': str(username),
         'email': str(email),
-        'password': str(hash),
-        'display_name': str(display_name),
-        'role': str(role)
+        'display_name': str(display_name'),
+        'role': str(role),
+        'providers': [],
+        'patients': [],
+        'password': str(helpers.hash_password(secrets.token_hex()))
     })
 
 
@@ -27,36 +25,23 @@ def read():
     return connect().find()
 
 
-def read_one(email):
-    helpers.validate_email(email)
-    return connect().find_one({'email': str(email)})
+def read_one(username):
+    return connect().find_one({'username': str(username)})
 
 
-def update_email(old_email, new_email):
-    helpers.validate_email(old_email)
-    helpers.validate_email(new_email)
-    connect().update_one({'email': str(old_email)}, {'$set': {'email': str(new_email)}})
+def update(username, new_username = None, new_email = None, new_display_name = None, new_role = None):
+    if new_username != None:
+        connect().update_one({'username': str(username)}, {'$set': {'username': str(username)}})
+
+    if new_email != None:
+        connect().update_one({'username': str(username)}, {'$set': {'email': str(new_email)}})
+
+    if new_display_name != None:
+        connect().update_one({'username': str(username)}, {'$set': {'display_name': str(new_display_name)}})
+
+    if new_role != None:
+        connect().update_one({'username': str(username)}, {'$set': {'role': str(role)}})
 
 
-def update_password(email, password):
-    helpers.validate_email(email)
-
-    hasher = argon2.PasswordHasher()
-    hash = hasher.hash(password)
-    connect().update_one({'email': str(email)}, {'$set': {'password': str(hash)}})
-
-
-def update_display_name(email, display_name):
-    helpers.validate_email(email)
-    connect().update_one({'email': str(email)}, {'$set': {'display_name': str(display_name)}})
-
-
-def update_role(email, role):
-    helpers.validate_email(email)
-    if role != 'doctor' and role != 'patient': raise errors.RoleError(email, role)
-    connect().update_one({'email': str(email)}, {'$set': {'role': str(role)})
-
-
-def delete(email):
-    helpers.validate_email(email)
-    connect().delete_one({'email': str(email)})
+def delete(username):
+    connect().delete_one({'username': str(username)})
