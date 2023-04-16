@@ -13,7 +13,7 @@ def create(username, email, display_name, role = 'user'):
     connect().insert_one({
         'username': str(username),
         'email': str(email),
-        'display_name': str(display_name'),
+        'display_name': str(display_name),
         'role': str(role),
         'providers': [],
         'patients': [],
