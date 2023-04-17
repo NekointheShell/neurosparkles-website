@@ -8,28 +8,33 @@ import argon2
 users = Blueprint('users', __name__)
 
 
-@users.route('/users/signup', methods = ['GET', 'POST'])
+# @users.route('/users/signup', methods = ['GET', 'POST'])
+# def signup():
+#     if request.method == 'GET':
+#         return render_template('pages/users/signup.html')
+# 
+#     elif request.method == 'POST':
+#         if not 'username' in request.form: raise errors.FormNotValidError()
+#         if not 'email' in request.form: raise errors.FormNotValidError()
+#         if not 'display_name' in request.form: raise errors.FormNotValidError()
+# 
+#         username = request.form['username']
+#         email = request.form['email']
+#         display_name = request.form['display_name']
+# 
+#         if not username.isalnum(): raise errors.InvalidInputError()
+#         if not display_name.isalnum(): raise errors.InvalidInputError()
+#         helpers.validate_email(email)
+# 
+#         if users_model.read_one(str(username)) != None: raise errors.DuplicateUserError()
+# 
+#         users_model.create(username, email, display_name)
+#         return render_template('pages/users/signup_success.html')
+
+
+@users.route('/users/signup')
 def signup():
-    if request.method == 'GET':
-        return render_template('pages/users/signup.html')
-
-    elif request.method == 'POST':
-        if not 'username' in request.form: raise errors.FormNotValidError()
-        if not 'email' in request.form: raise errors.FormNotValidError()
-        if not 'display_name' in request.form: raise errors.FormNotValidError()
-
-        username = request.form['username']
-        email = request.form['email']
-        display_name = request.form['display_name']
-
-        if not username.isalnum(): raise errors.InvalidInputError()
-        if not display_name.isalnum(): raise errors.InvalidInputError()
-        helpers.validate_email(email)
-
-        if users_model.read_one(str(username)) != None: raise errors.DuplicateUserError()
-
-        users_model.create(username, email, display_name)
-        return render_template('pages/users/signup_success.html')
+    return '', 404
 
 
 @users.route('/users/login', methods = ['GET', 'POST'])
