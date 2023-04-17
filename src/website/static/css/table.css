@@ -4,5 +4,6 @@
 
 
 #content form {
-    margin: auto;
+    margin: 1em auto auto auto;
+    text-align: center;
 }
