@@ -91,9 +91,9 @@ def profile():
         user = users_model.read_one(str(session['username']))
         users_model.update(
             user['username'],
-            username = username,
-            email = email,
-            display_name = display_name
+            new_username = username,
+            new_email = email,
+            new_display_name = display_name
         )
 
         return redirect(url_for('users.profile'))
