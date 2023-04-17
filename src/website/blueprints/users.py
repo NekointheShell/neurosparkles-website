@@ -119,7 +119,7 @@ def reset_password():
         user = users_model.read_one(session['username'])
 
         if helpers.verify_password(request.form['old_password'], user['password']):
-            users_model.update(user['username'], request.form['new_password'])
+            users_model.update(user['username'], new_password = request.form['new_password'])
         else: raise WrongPasswordError(session['username'])
 
         return redirect(url_for('users.reset_password'))
