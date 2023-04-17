@@ -39,7 +39,7 @@ def update(
     ):
 
     if new_username != None:
-        connect().update_one({'username': str(username)}, {'$set': {'username': str(username)}})
+        connect().update_one({'username': str(username)}, {'$set': {'username': str(new_username)}})
 
     if new_email != None:
         connect().update_one({'username': str(username)}, {'$set': {'email': str(new_email)}})
