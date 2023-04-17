@@ -16,7 +16,10 @@
     <script>
         new Chart(document.getElementById('moods'), {
             type: 'line',
-            data: [10, 20, 30, 20, 40, 60, 90]
+            datasets: [{
+                label: 'test',
+                data: [10, 20, 30, 20, 40, 60, 90]
+            }]
         })
     </script>
 {% endblock %}
