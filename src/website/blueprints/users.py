@@ -54,6 +54,12 @@ def login():
         else: raise errors.FailedLoginError(attempted_user['username'])
 
 
+@users.route('/users/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('root'))
+
+
 @users.route('/users/profile', methods = ['GET', 'POST'])
 def profile():
     if request.method == 'GET':

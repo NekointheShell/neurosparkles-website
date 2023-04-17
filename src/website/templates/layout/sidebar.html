@@ -20,6 +20,10 @@
 
 
 <section id='login'>
-    <a href='/users/signup'>Sign Up</a>
-    <a href='/users/login'>Login</a>
+    {% if 'username' in session %}
+        <a href='/users/logout'>Logout</a>
+    {% else %}
+        <a href='/users/signup'>Sign Up</a>
+        <a href='/users/login'>Login</a>
+    {% endif %}
 </section>
