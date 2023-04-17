@@ -59,7 +59,7 @@ def profile():
     if request.method == 'GET':
         if not 'username' in session: raise errors.NotLoggedInError()
 
-        user = users_model.find_one(session['username'])
+        user = users_model.read_one(session['username'])
         return render_template('pages/users/profile.html', user = user)
 
     elif request.method == 'POST':
