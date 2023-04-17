@@ -11,7 +11,7 @@ app.register_blueprint(users)
 
 
 @app.errorhandler(HTTPException)
-def http_exception_handler():
+def http_exception_handler(exception):
     return render_template('pages/error.html')
 
 
