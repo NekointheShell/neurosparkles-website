@@ -21,9 +21,9 @@
         </table>
 
         <form method='POST'>
-            <input type='text' name='username' placeholder='{{ user['username'] }}'>
-            <input type='text' name='email' placeholder='{{ user['email'] }}'>
-            <input type='text' name='display_name' placeholder='{{ user['display_name'] }}'>
+            <input type='text' name='username' placeholder='{{ user['username'] }}' value='{{ user['username'] }}'>
+            <input type='text' name='email' placeholder='{{ user['email'] }}' value='{{ user['email'] }}'>
+            <input type='text' name='display_name' placeholder='{{ user['display_name'] }}' value='{{ user['display_name'] }}'>
             <input type='submit' value='Update'>
         </form>
     </section>
