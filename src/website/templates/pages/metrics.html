@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+    <script src='/static/js/chart.js'></script>
+    <section id='content'>
+        <canvas id='moods'></canvas>
+        <canvas id='sleep'></canvas>
+        <canvas id='exercise'></canvas>
+        <canvas id='food'></canvas>
+        <canvas id='blood_pressure'></canvas>
+        <canvas id='spo2'></canvas>
+        <canvas id='bpm'></canvas>
+    </section>
+
+    <script>
+        new Chart(document.getElementById('moods'), {
+            type: 'line',
+            data: [10, 20, 30, 20, 40, 60, 90]
+        })
+    </script>
+{% endblock %}
