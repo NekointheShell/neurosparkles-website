@@ -29,7 +29,15 @@ def read_one(username):
     return connect().find_one({'username': str(username)})
 
 
-def update(username, new_username = None, new_email = None, new_display_name = None, new_role = None):
+def update(
+    username,
+    new_username = None,
+    new_email = None,
+    new_display_name = None,
+    new_role = None,
+    new_password = None
+    ):
+
     if new_username != None:
         connect().update_one({'username': str(username)}, {'$set': {'username': str(username)}})
 
@@ -41,6 +49,9 @@ def update(username, new_username = None, new_email = None, new_display_name = N
 
     if new_role != None:
         connect().update_one({'username': str(username)}, {'$set': {'role': str(role)}})
+
+    if new_password != None:
+        connect().update_one({'username': str(username)}, {'$set': {'password': str(helpers.hash_password(new_password))}})
 
 
 def delete(username):

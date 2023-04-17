@@ -57,7 +57,7 @@ def login():
 @users.route('/users/profile', methods = ['GET', 'POST'])
 def profile():
     if request.method == 'GET':
-        if not 'username' in session: raise errors.NotLoggedInError()
+        if not helpers.is_loggedin(): raise errors.NotLoggedInError()
 
         user = users_model.read_one(session['username'])
         return render_template('pages/users/profile.html', user = user)
@@ -100,6 +100,20 @@ def patients():
     return render_template('pages/users/patients.html', providers = user['patients'])
 
 
-@users.route('/users/reset_password')
+@users.route('/users/reset_password', methods = ['GET', 'POST'])
 def reset_password():
-    pass
+    if request.method == 'GET':
+        if not helpers.is_loggedin(): raise errors.NotLoggedInError()
+        return render_template('pages/users/reset_password.html')
+
+    elif request.method == 'POST':
+        if not helpers.is_loggedin(): raise errors.NotLoggedInError()
+        if not 'old_password' in request.form: raise errors.FormNotValidError()
+        if not 'new_password' in request.form: raise errors.FormNotValidError()
+        user = users_model.read_one(session['username'])
+
+        if helpers.verify_password(request.form['old_password'], user['password']):
+            users_model.update(user['username'], request.form['new_password'])
+        else: raise WrongPasswordError(session['username'])
+
+        return redirect(url_for('users.reset_password'))

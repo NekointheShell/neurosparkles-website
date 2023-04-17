@@ -34,3 +34,8 @@ def verify_password(password, hash):
     hasher = argon2.PasswordHasher()
     if hasher.verify(hash, password): return True
     else: return False
+
+
+def is_loggedin():
+    if 'username' in session: return True
+    else: return False

@@ -40,6 +40,6 @@ class NotLoggedInError(Error):
         super().__init__('User is not logged in from {}'.format(request.remote_addr))
 
 
-class AttemptedAdminAccessError(Error):
-    def __init__(self, email):
-        super().__init__('User {} attempted to access an admin page'.format(email))
+class WrongPasswordError(Error):
+    def __init__(self, username):
+        super().__init__('User {} entered the wrong password'.format(username)
