@@ -96,6 +96,8 @@ def profile():
             new_display_name = display_name
         )
 
+        session['username'] = username
+
         return redirect(url_for('users.profile'))
 
 
