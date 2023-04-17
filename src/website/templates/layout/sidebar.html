@@ -9,6 +9,12 @@
 <section id='links'>
     <a href='/'>Home</a>
     <a href='/resources'>Resources</a>
+
+    {% if username in session %}
+        <a href='/users/profile'>My Profile</a>
+        <a href='/users/providers'>My Providers</a>
+        <a href='/users/patients'>My Patients</a>
+    {% endif %}
 </section>
 
 

@@ -48,6 +48,7 @@ def login():
 
         if helpers.verify_password(password, attempted_user['password']):
             session['username'] = attempted_user['username']
+            session['role'] = attempted_user['role']
             return redirect(url_for('root'))
 
         else: raise errors.FailedLoginError(attempted_user['username'])
