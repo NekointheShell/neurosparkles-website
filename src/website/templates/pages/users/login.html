@@ -3,9 +3,11 @@
 
 {% block content %}
     <link rel='stylesheet' href='/static/css/form.css'>
-    <form method='POST'>
-        <input type='text' name='username' placeholder='username'>
-        <input type='password' name='password' placeholder='Password'>
-        <input type='submit' value='Login'>
-    </form>
+    <section id='content'>
+        <form method='POST'>
+            <input type='text' name='username' placeholder='username'>
+            <input type='password' name='password' placeholder='Password'>
+            <input type='submit' value='Login'>
+        </form>
+    </section>
 {% endblock %}
