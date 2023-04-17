@@ -42,4 +42,4 @@ class NotLoggedInError(Error):
 
 class WrongPasswordError(Error):
     def __init__(self, username):
-        super().__init__('User {} entered the wrong password'.format(username)
+        super().__init__('User {} entered the wrong password'.format(username))
