@@ -7,6 +7,7 @@ from website.blueprints.metrics import metrics
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex()
+app.session_cookie_httponly = False
 
 app.register_blueprint(users)
 app.register_blueprint(metrics)
