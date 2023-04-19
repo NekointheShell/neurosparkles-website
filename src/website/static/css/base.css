@@ -14,3 +14,8 @@ body {
     background-color: black;
     color: white;
 }
+
+
+#content {
+    overflow: scroll;
+}
