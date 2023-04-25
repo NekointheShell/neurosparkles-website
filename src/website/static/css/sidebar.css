@@ -25,14 +25,6 @@
 }
 
 
-#login {
-    grid-area: login;
-
-    background-color: black;
-    border-right: 2px dotted gray;
-}
-
-
 * a {
     display: block;
     text-decoration: none;

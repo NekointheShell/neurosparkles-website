@@ -9,23 +9,4 @@
 <section id='links'>
     <a href='/'>Home</a>
     <a href='/resources'>Resources</a>
-
-    {% if 'username' in session %}
-        <a href='/users/profile'>My Profile</a>
-        <a href='/users/providers'>My Providers</a>
-        <a href='/users/patients'>My Patients</a>
-        <a href='/users/reset_password'>Reset Password</a>
-        <a href='/users/apikeys'>API Keys</a>
-        <a href='/metrics/{{ session['username'] }}'>My Metrics</a>
-    {% endif %}
-</section>
-
-
-<section id='login'>
-    {% if 'username' in session %}
-        <a href='/users/logout'>Logout</a>
-    {% else %}
-        <!-- <a href='/users/signup'>Sign Up</a> -->
-        <a href='/users/login'>Login</a>
-    {% endif %}
 </section>
